@@ -7,6 +7,7 @@ USE mysqldesa;
 -- ad: adjudicacion
 -- co: contacto
 -- pr: proveedor
+--
 alter table tbh9cpad 
 drop 
 	foreign key FKh9cpadcppr
