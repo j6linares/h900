@@ -1,0 +1,46 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+    template="/WEB-INF/templates/default.xhtml">
+
+    <ui:define name="title"> 
+	HAL9000
+	</ui:define>
+    
+    <ui:define name="application_name"> 
+	H9CP: Contratos Públicos
+	</ui:define>
+	
+    <ui:define name="user_label"> 
+	<h:outputText value="Usuario: " rendered="#{not empty usuario.nombre}"/> 
+	</ui:define>
+	
+    <ui:define name="user_name"> 
+	<h:outputText value="#{usuario.nombre}" rendered="#{not empty usuario.nombre}"/> 
+	</ui:define>
+	
+    <ui:define name="content" >
+		<h1>Relación de Contactos</h1>
+		<br class="clear"/>
+		<h:form id="vercontactosform">
+		
+			<h:outputLabel value="Contactos:" for="id" />
+			<br class="clear"/>
+			<ul>
+				<ui:repeat var="wcontacto" value="#{contactobean.getContactos()}">
+					<li>
+						<strong>Name:</strong>
+							<h:outputText value="#{wcontacto.contacto} (#{wcontacto.id})" />
+							<br/>
+					</li>
+				</ui:repeat>
+			</ul>
+			
+			<h:messages styleClass="messages"/>
+			<a href="/h9cp/index.xhtml">Index</a>
+			<br/><h:commandLink action="altaContacto" value="Back" />
+		</h:form>
+    </ui:define>
+	
+</ui:composition>

@@ -1,0 +1,101 @@
+*{
+font-family: monospace;	
+}
+
+body {
+
+}
+header {
+	background-color: #C40016;
+	height: auto;
+	padding: 10px;
+	width: 95%;
+	margin: 0 auto;
+	border: 2px solid #000000;
+}
+header .right {
+	display: #inline-block;
+	float: right;
+	font-size: 32px;
+	font-weight: bolder;
+	height: auto;
+	padding: 40px;
+	vertical-align: middle;
+}
+header .logout {
+	display: inline-block;
+	float: right;
+	font-size: inherit;
+	font-weight: normal;
+	height: auto;
+	padding: 10px;
+	vertical-align: bottom;
+	color: gray;
+}
+
+#content{
+	background-color: #F2F2F2;
+	width: 95%;
+	margin: 0 auto;
+	padding: 10px 20px;
+	height: 500px;
+	border: 1px solid #000000;
+}
+
+footer{
+	border: 2px solid #000000;
+	background-color: #C40016;
+	height: 30px;
+	padding: 10px;
+	width: 95%;
+	margin: 0 auto;
+	text-align: center;
+	font-weight: bolder;
+	font-size: 27px;
+}
+
+label{
+	display: inline-block;
+	float: left;
+	clear: left;
+	width: 165px;
+}
+
+input{
+	display: inline-block;
+	float: left;
+	width: 362px;
+}
+
+select{
+	display: inline-block;
+	float: left;
+	width: 371px;
+}
+
+textarea{
+	display: inline-block;
+	float: left;
+}
+
+.clear{
+	clear: both;
+}
+
+.messages {
+	color: green;
+	font-weight: bolder;
+}
+
+.btn{
+	display: inline-block;
+	float: left;
+	clear: left;
+	width: 165px;
+}
+.error {
+	color: red;
+	text-align:right;
+	display: inline;
+	font-weight: normal;
+}

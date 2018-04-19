@@ -1,0 +1,55 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:fn="http://java.sun.com/jstl/functions"
+    template="/WEB-INF/templates/default.xhtml">
+
+    <ui:define name="title"> 
+	HAL9000
+	</ui:define>
+    
+<!--     <ui:define name="application_name">  -->
+<!-- 	Aplicación web -->
+<!-- 	</ui:define> -->
+	
+<!--     <ui:define name="user_label">  -->
+<!-- 	<h:outputText value="Usuario: " rendered="#{not empty loginView.currentUsuario}"/>  -->
+<!-- 	</ui:define> -->
+	
+<!--     <ui:define name="user_name">  -->
+<!-- 	<h:outputText value="#{loginView.currentUsuario.usuario}" rendered="#{not empty loginView.currentUsuario.usuario}"/>  -->
+<!-- 	</ui:define> -->
+<!--     <ui:define name="user_name">  -->
+<!-- 	<h:outputText value="#{loginView.identificacionUsuario()}" rendered="#{not empty loginView.currentUsuario.usuario}"/>  -->
+<!-- 	</ui:define> -->
+	
+	
+	
+    <ui:define name="content" >
+		<h1>Identificación:</h1>
+		<br class="clear"/>
+		<h:form id="loginform">
+			<p class="input">
+				<h:outputLabel value="Usuario:" for="usuario" />
+				<h:inputText value="#{loginView.usuario}" id="usuario" 
+					required="true" requiredMessage="Usuario obligatorio"/>
+			</p>
+			<p class="input">
+				<h:outputLabel value="Userid:" for="userid" />
+				<h:inputSecret value="#{loginView.userid}" id="userid" 
+					required="false" requiredMessage="Userid obligatorio"/>
+			</p>
+			<br class="clear"/>
+			<p class="input">
+				<h:outputLabel value="" for="entrar" />
+				<h:commandButton action="#{loginView.login()}" value="Entrar" id="entrar" />
+			</p>
+			<br class="clear"/>
+			<h:messages styleClass="messages"/>
+			<br/><h:commandLink action="index" value="Volver" immediate="true"/>
+		</h:form>
+    </ui:define>
+	
+</ui:composition>

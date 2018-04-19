@@ -1,0 +1,36 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:fn="http://java.sun.com/jstl/functions"
+    template="/WEB-INF/templates/default.xhtml">
+
+    <ui:define name="title"> 
+	HAL9000
+	</ui:define>
+    
+    <ui:define name="application_name"> 
+	Aplicación web
+	</ui:define>
+	
+    <ui:define name="user_label"> 
+	<h:outputText value="Usuario -> " rendered="#{not empty loginView.currentUsuario}"/> 
+	</ui:define>
+	
+    <ui:define name="user_name"> 
+	<h:outputText value="#{loginView.identificacionUsuario()}" rendered="#{not empty loginView.currentUsuario}"/> 
+	</ui:define>
+	
+    <ui:define name="content" >
+		<h1>Welcome!</h1>
+		<br class="clear"/>
+		<h:form>
+			<h:outputText value="#{loginView.currentUsuario.usuario}" rendered="#{not empty loginView.currentUsuario.usuario}"/>
+			<h:outputText value="(#{loginView.currentUsuario.userid})" rendered="#{not empty loginView.currentUsuario.userid}"/>
+			<h:outputText value="#{loginView.currentUsuario.perfilPorDefecto.perfil}" rendered="#{not empty loginView.currentUsuario.perfiles}"/>
+			<br/><h:commandLink action="index" value="Volver" />
+		</h:form>
+    </ui:define>
+	
+</ui:composition>

@@ -1,0 +1,38 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:fn="http://java.sun.com/jstl/functions"
+    template="/WEB-INF/templates/default.xhtml">
+
+    <ui:define name="title"> 
+	HAL9000
+	</ui:define>
+    
+    <ui:define name="application_name"> 
+	Aplicación web
+	</ui:define>
+	
+    <ui:define name="user_label"> 
+	<h:outputText value="Usuario: " rendered="#{not empty usuario.nombre}"/> 
+	</ui:define>
+	
+    <ui:define name="user_name"> 
+	<h:outputText value="#{usuario.nombre}" rendered="#{not empty usuario.nombre}"/> 
+	</ui:define>
+	
+	
+    <ui:define name="content" >
+		<h1>Menú:</h1>
+		<h:form id="menu">
+		<br/><h:commandLink action="login" value="Identificarse" />
+		<br/><h:commandLink action="altaContacto" value="Alta Contacto" />
+		<br/><h:commandLink action="verContacto" value="Buscar Contacto" />
+		<br/><h:commandLink action="verContactos" value="Relación de Contactos" />
+		<br/><h:commandLink action="anunciosContacto" value="Relación de Anuncios por Contacto" />
+		<br/><h:commandLink action="perfilesUsuario" value="Relación de Perfiles por Usuario" />
+		</h:form>
+    </ui:define>
+	
+</ui:composition>

@@ -1,0 +1,47 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+    template="/WEB-INF/templates/default.xhtml">
+
+    <ui:define name="title"> 
+	HAL9000
+	</ui:define>
+    
+    <ui:define name="application_name"> 
+	H9CP: Contratos Públicos
+	</ui:define>
+	
+    <ui:define name="user_label"> 
+	<h:outputText value="Usuario: " rendered="#{not empty usuario.nombre}"/> 
+	</ui:define>
+	
+    <ui:define name="user_name"> 
+	<h:outputText value="#{usuario.nombre}" rendered="#{not empty usuario.nombre}"/> 
+	</ui:define>
+	
+    <ui:define name="content" >
+		<h1>Ver contacto</h1>
+		<br class="clear"/>
+		<h:form id="vercontactoform">
+			<p class="input">
+				<h:outputLabel value="Buscar contacto por id:" for="id" />
+				<h:inputText value="#{contactobean.id}" id="id" 
+					required="true" requiredMessage="Id es obligado"/>
+			</p>
+			<br class="clear"/>
+			<br class="clear"/>
+			<p class="input">
+				<h:commandButton action="#{contactobean.getContacto()}" value="Submit" styleClass="btn"/>
+			</p>
+			<br class="clear"/>
+			<h:outputLabel value="Nombre contacto :" for="nombre" />
+			<h:outputText value="#{contactobean.nombre}" id="nombre"	/>
+			<br class="clear"/>
+			<h:messages styleClass="messages"/>
+			<a href="/h9cp/index.xhtml">Index</a>
+			<br/><h:commandLink action="altaContacto" value="Back" />
+		</h:form>
+    </ui:define>
+	
+</ui:composition>

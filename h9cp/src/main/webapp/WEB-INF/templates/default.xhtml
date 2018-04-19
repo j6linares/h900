@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:fn="http://java.sun.com/jstl/functions"
+      >
+
+	<h:head>
+		<title>
+			<ui:insert name="title">
+					[Title will be inserted here]
+			</ui:insert>
+		</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<h:outputStylesheet name="css/screen.css" />
+		<link rel="icon" type="image/png" href="resources/images/hal9000ico.png" />
+	</h:head>
+	
+	<h:body>
+		<header>
+			<h:graphicImage name="images/hal9000.png" />
+			<div class="right">
+					<ui:insert name="application_name">
+					[Application name will be inserted here]
+					</ui:insert>
+			</div>
+			<div class="logout">
+					<ui:insert name="user_label">
+					[User label will be inserted here]
+					</ui:insert>
+					<ui:insert name="user_name">
+					[User name will be inserted here]
+					</ui:insert>
+			</div>
+		</header>
+		<div id="content">
+					<ui:insert name="content">
+					[Template content will be inserted here]
+					</ui:insert>
+		</div>
+		
+		<footer>
+		HAL 9000 - Heuristically Programmed Algorithmic Computer (c) 2001
+		</footer>
+		
+	</h:body>
+</html>
