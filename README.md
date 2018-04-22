@@ -36,5 +36,25 @@ $ git add README.md
 
 commit al repositorio local
 $ git commit -m "README.md actualizado"
+[master c990819] README.md actualizado
 
+$ git config --global user.name "j6linares"
+$ git config --global user.email j6linares@gmail.com
 
+subir al repositorio github
+$ git push https://github.com/j6linares/h900 
+
+mostrar las ramas
+$ git branch -v
+* master c990819 [ahead 1] README.md actualizado
+
+$ git push 
+Username for 'https://github.com': j6linares
+Password for 'https://j6linares@github.com': 
+Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 798 bytes | 798.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/j6linares/h900
+   9ffbb8c..c990819  master -> master
