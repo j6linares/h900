@@ -19,7 +19,7 @@ public class PlantillaBaseWebTest {
 	public static WebArchive createDeployment() {
 		return ShrinkWrap.create(WebArchive.class,"h9cptest.war")
 					//.addClass(ContactoEJB.class)
-					.addPackages(true, "net.indra.hal9000.h9cp")
+					.addPackages(true, "net.indra.hal9000")
 					.addAsResource("META-INF/persistence.xml",
 							"META-INF/persistence.xml")
 					//.addAsManifestResource(EmptyAsset.INSTANCE, ArchivePaths.create("beans.xml"))

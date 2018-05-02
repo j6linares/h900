@@ -43,7 +43,7 @@ public class UsuarioEJB {
 	// Alta
 	public Usuario crear(Usuario u) {
 		log.info("Antes de crear: " + u);
-		// excepción si la instancia tiene id
+		// TODO excepción si la instancia tiene id
 		// excepción si la instancia no tiene info
 		em.persist(u);
 		log.info("Despues de crear: " + u);
@@ -86,7 +86,7 @@ public class UsuarioEJB {
 	// Consultar todos
 	public List<Usuario> buscarTodos() {
 		log.info("Antes de buscar todos.");
-		TypedQuery<Usuario> query = em.createQuery("SELECT u FROM usuario u", Usuario.class);
+		TypedQuery<Usuario> query = em.createQuery("SELECT u FROM Usuario u", Usuario.class);
 		List<Usuario> usuarios = query.getResultList();
 		log.info("Despues de buscar todos: " + usuarios);
 		return usuarios;
