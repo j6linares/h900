@@ -39,9 +39,9 @@ public class UsuarioEJBTest extends PlantillaBaseWebTest {
 		logger.info("***** Creando Usuario "+usuarioEJB.crear(u));
 		assertTrue(u.getId() != null);
 		
-//		logger.info("***** buscarTodos debe devolver uno mas q antes="+n);
-//		assertTrue (n+1==usuarioEJB.buscarTodos().size());
-//		
+		logger.info("***** buscarTodos debe devolver uno mas q antes="+n);
+		assertTrue (n+1==usuarioEJB.buscarTodos().size());
+		
 //		logger.info("***** actualizar debe modificar el contacto "+c1);
 //		c1.setContacto("Primer Contacto Actualizado");
 //		usuarioEJB.actualizar(c1);
