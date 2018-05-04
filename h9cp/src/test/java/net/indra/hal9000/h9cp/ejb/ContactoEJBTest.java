@@ -12,7 +12,7 @@ import org.jboss.arquillian.junit.Arquillian;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import net.indra.hal9000.h9cp.PlantillaBaseWebTest;
+import net.indra.hal9000.PlantillaBaseWebTest;
 import net.indra.hal9000.h9cp.model.Contacto;
 import net.indra.hal9000.h9cp.util.RecursosHal9000;
 

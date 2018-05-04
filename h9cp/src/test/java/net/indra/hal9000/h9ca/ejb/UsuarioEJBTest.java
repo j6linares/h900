@@ -6,14 +6,13 @@ import java.util.logging.Logger;
 
 import javax.ejb.EJB;
 import javax.inject.Inject;
-import javax.ws.rs.core.Response;
 
 import org.jboss.arquillian.junit.Arquillian;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import net.indra.hal9000.h9ca.model.Usuario;
-import net.indra.hal9000.h9cp.PlantillaBaseWebTest;
+import net.indra.hal9000.PlantillaBaseWebTest;
 import net.indra.hal9000.h9cp.util.RecursosHal9000;
 
 @RunWith(Arquillian.class)
