@@ -16,7 +16,7 @@ public class PlantillaBaseWebTest {
 
 	@Deployment
 	public static WebArchive createDeployment() {
-		return ShrinkWrap.create(WebArchive.class,"h9cptest.war")
+		return ShrinkWrap.create(WebArchive.class,"hal9000test.war")
 					//.addClass(ContactoEJB.class)
 					.addPackages(true, "net.indra.hal9000")
 					.addAsResource("META-INF/persistence.xml",

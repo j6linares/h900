@@ -12,8 +12,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import net.indra.hal9000.h9ca.model.Usuario;
+import net.indra.hal9000.util.RecursosHal9000;
 import net.indra.hal9000.PlantillaBaseWebTest;
-import net.indra.hal9000.h9cp.util.RecursosHal9000;
 
 @RunWith(Arquillian.class)
 public class UsuarioEJBTest extends PlantillaBaseWebTest {

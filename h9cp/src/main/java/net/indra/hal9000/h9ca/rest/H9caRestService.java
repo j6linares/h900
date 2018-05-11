@@ -17,7 +17,7 @@ import javax.ws.rs.core.Response.ResponseBuilder;
 import net.indra.hal9000.h9ca.ejb.UsuarioEJB;
 import net.indra.hal9000.h9ca.model.Perfil;
 import net.indra.hal9000.h9ca.model.Usuario;
-import net.indra.hal9000.h9cp.util.RecursosHal9000;
+import net.indra.hal9000.util.RecursosHal9000;
 
 @Stateless
 // http://localhost:8080/h9cp/api/rest/

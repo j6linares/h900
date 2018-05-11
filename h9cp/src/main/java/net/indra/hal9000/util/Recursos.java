@@ -1,4 +1,4 @@
-package net.indra.hal9000.h9cp.util;
+package net.indra.hal9000.util;
 
 import java.util.logging.Logger;
 

@@ -17,6 +17,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.ResponseBuilder;
 
 import net.indra.hal9000.h9cp.ejb.ContactoEJB;
+import net.indra.hal9000.h9cp.ejb.ContactoException;
 import net.indra.hal9000.h9cp.model.Contacto;
 
 @Stateless
@@ -33,12 +34,12 @@ public class H9cpRestService {
 	@Path("crear/contacto")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Contacto crearContacto(Contacto c) {
+	public Contacto crearContacto(Contacto c) throws ContactoException {
 		return contactoEJB.crear(c);
 	}
 	@DELETE
 	@Path("borrar/contacto")
-	public Response borrarContacto(Contacto c) {
+	public Response borrarContacto(Contacto c) throws ContactoException {
 		ResponseBuilder builder;
 		Response r=buscarContactoPorId(c.getId());
 		if ( r.getStatus() == Response.Status.OK.getStatusCode()) {
@@ -53,14 +54,14 @@ public class H9cpRestService {
 	}
 	@DELETE
 	@Path("borrar/contacto/porId/{id}")
-	public void borrarContactoPorId(@PathParam("id") Long id) {
+	public void borrarContactoPorId(@PathParam("id") Long id) throws ContactoException {
 		contactoEJB.borrarPorId(id);
 	}
 	@POST
 	@Path("guardar/contacto")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response guardarContacto(Contacto c) {
+	public Response guardarContacto(Contacto c) throws ContactoException {
 		
 		//si el contacto no tiene id, se da de alta
 		//sino se busca en BD y si no existe (null) se devuelve un error

@@ -20,7 +20,7 @@ import net.indra.hal9000.h9ca.model.Perfil;
 import net.indra.hal9000.h9ca.model.Usuario;
 import net.indra.hal9000.h9ca.util.Empleado;
 import net.indra.hal9000.h9ca.util.UsuarioUtil;
-import net.indra.hal9000.h9cp.util.RecursosHal9000;
+import net.indra.hal9000.util.RecursosHal9000;
 
 @Stateless
 public class UsuarioEJB {
