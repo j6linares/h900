@@ -10,7 +10,6 @@ import javax.inject.Inject;
 
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
-import org.jboss.shrinkwrap.api.ArchivePaths;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
@@ -18,7 +17,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import net.indra.hal9000.h9cp.model.Contacto;
-import net.indra.hal9000.h9cp.util.RecursosHal9000;
+import net.indra.hal9000.util.RecursosHal9000;
 
 @RunWith(Arquillian.class)
 public class EJBTest {
@@ -46,7 +45,7 @@ public class EJBTest {
 	}
 
 	@Test
-	public void testCrearContacto() {
+	public void testCrearContacto() throws ContactoException {
 		logger.info("Iniciando test h9cp");
 		Contacto c=new Contacto();
 		c.setContacto("Nombre Apellido");

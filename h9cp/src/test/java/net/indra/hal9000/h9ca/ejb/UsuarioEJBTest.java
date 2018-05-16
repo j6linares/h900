@@ -6,15 +6,14 @@ import java.util.logging.Logger;
 
 import javax.ejb.EJB;
 import javax.inject.Inject;
-import javax.ws.rs.core.Response;
 
 import org.jboss.arquillian.junit.Arquillian;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import net.indra.hal9000.h9ca.model.Usuario;
-import net.indra.hal9000.h9cp.PlantillaBaseWebTest;
-import net.indra.hal9000.h9cp.util.RecursosHal9000;
+import net.indra.hal9000.util.RecursosHal9000;
+import net.indra.hal9000.PlantillaBaseWebTest;
 
 @RunWith(Arquillian.class)
 public class UsuarioEJBTest extends PlantillaBaseWebTest {
@@ -40,9 +39,9 @@ public class UsuarioEJBTest extends PlantillaBaseWebTest {
 		logger.info("***** Creando Usuario "+usuarioEJB.crear(u));
 		assertTrue(u.getId() != null);
 		
-//		logger.info("***** buscarTodos debe devolver uno mas q antes="+n);
-//		assertTrue (n+1==usuarioEJB.buscarTodos().size());
-//		
+		logger.info("***** buscarTodos debe devolver uno mas q antes="+n);
+		assertTrue (n+1==usuarioEJB.buscarTodos().size());
+		
 //		logger.info("***** actualizar debe modificar el contacto "+c1);
 //		c1.setContacto("Primer Contacto Actualizado");
 //		usuarioEJB.actualizar(c1);

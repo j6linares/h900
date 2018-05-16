@@ -15,7 +15,7 @@ import javax.ws.rs.core.Response.ResponseBuilder;
 
 import net.indra.hal9000.h9cp.model.Anuncio;
 import net.indra.hal9000.h9cp.model.Contacto;
-import net.indra.hal9000.h9cp.util.RecursosHal9000;
+import net.indra.hal9000.util.RecursosHal9000;
 
 @Stateless
 public class AnuncioEJB {

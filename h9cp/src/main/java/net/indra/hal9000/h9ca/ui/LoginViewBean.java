@@ -16,7 +16,8 @@ import javax.inject.Named;
 import net.indra.hal9000.h9ca.ejb.UsuarioEJB;
 import net.indra.hal9000.h9ca.model.Perfil;
 import net.indra.hal9000.h9ca.model.Usuario;
-import net.indra.hal9000.h9cp.util.RecursosHal9000;
+import net.indra.hal9000.util.RecursosHal9000;
+
 import java.io.Serializable;
 
 @Named("loginView")

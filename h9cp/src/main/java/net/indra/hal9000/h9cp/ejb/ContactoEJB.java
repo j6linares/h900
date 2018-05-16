@@ -3,7 +3,6 @@ package net.indra.hal9000.h9cp.ejb;
 import java.util.List;
 import java.util.logging.Logger;
 
-import javax.ejb.EJBException;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -12,7 +11,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.ResponseBuilder;
 
 import net.indra.hal9000.h9cp.model.Contacto;
-import net.indra.hal9000.h9cp.util.RecursosHal9000;
+import net.indra.hal9000.util.RecursosHal9000;
 
 @Stateless
 public class ContactoEJB {
@@ -27,30 +26,50 @@ public class ContactoEJB {
 
 	// CRUD RESTful methods below
 	// Alta
-	public Contacto crear(Contacto c) {
-		log.info("Antes de crear el contacto: " + c);
+	public Contacto crear(Contacto c) throws ContactoException {
+		log.info("##### Antes de crear el contacto: " + c);
 		//excepción si el contacto tiene id
+		if (c.getId()!=null) {
+			throw new ContactoException("Contacto nuevo con Id!");
+		} else {
 		//excepción si el contacto no tiene info en contacto
-		em.persist(c);
-		log.info("Despues de crear el contacto: " + c);
+		if (c.getContacto() == null || "".equals(c.getContacto())) {
+			throw new ContactoException("Contacto sin Info!");
+		} else {
+			em.persist(c);
+		}
+		}
+		log.info("##### Despues de crear el contacto: " + c);
 		return c;
 	}
 
 	// Baja
-	public void borrar(Contacto c) {
-		log.info("Antes de borrar el contacto: " + c);
+	public void borrar(Contacto c) throws ContactoException {
+		log.info("##### Antes de borrar el contacto: " + c);
 		//excepción si el contacto NO tiene id
+		if (c.getId() == null) {
+			throw new ContactoException("Contacto sin Id!");
+		} else {
 		//excepción si el contacto tiene id pero no existe en BD
-		em.remove(c);
-		log.info("Después de borrar el contacto: " + c);
+			// antes de borrar la entidad comprueba si esta está gestionada por el em
+			em.remove(em.contains(c) ? c : em.merge(c));
+		}
+		log.info("##### Después de borrar el contacto: " + c);
 	}
 
 	// Baja por Id
-	public void borrarPorId(Long id) {
-		log.info("Antes de borrar el contacto por id: " + buscarPorId(id));
+	public void borrarPorId(Long id) throws ContactoException {
+		Contacto c;
+		
+		log.info("##### Antes de borrar el contacto por id: " + buscarPorId(id));
+		c = buscarPorId(id);
 		//excepción si el id del contacto no existe en BD
-		em.remove(buscarPorId(id));
-		log.info("Después de borrar el contacto: " + buscarPorId(id));
+		if (c == null) {
+			throw new ContactoException("Id de Contacto no existe en BD!");
+		} else {
+			em.remove(c);
+		}
+		log.info("##### Después de borrar el contacto: " + buscarPorId(id));
 	}
 
 	// Modificación
@@ -64,7 +83,7 @@ public class ContactoEJB {
 
 	// Consulta por Id
 	public Contacto buscarPorId(Long id) {
-		log.info("Antes de buscar el contacto por id: " + id);
+		log.info("##### Antes de buscar el contacto por id: " + id);
 		//excepción si id no existe en BD, devuelve objeto nulo
 		return em.find(Contacto.class, id);
 	}
@@ -99,34 +118,35 @@ public class ContactoEJB {
 	
 	// Guardar un contacto (alta sino existe, modificación si ya existe)
 	public Response guardar(Contacto c) {
-		log.info("Antes de guardar el contacto "+c );
+		log.info("##### Antes de guardar el contacto "+c );
 
-		try {
+//		try {
 			ResponseBuilder builder;
 			if (c.getId() == null) { // contacto sin id, crear nuevo
-				log.info("Contacto NO existe en BD "+c );
+				log.info("##### Contacto NO existe en BD "+c );
 				em.persist(c);
-				log.info("Despues de guardar el contacto "+c );
+				log.info("##### Despues de guardar el contacto "+c );
 				builder = Response.ok(c);
 			} else { // ya existe el contacto en BD?
 				Contacto uC=buscarPorId(c.getId());
-				if (uC.getId() !=null) {
-					log.info("Contacto YA existe en BD "+uC );
-					uC = em.merge(c);
-					log.info("Despues de guardar el contacto "+uC );
-					builder = Response.ok(uC);
-				} else { // contacto con id pero no existe en BD se persiste sin mantener el id
-					log.info("Contacto con id NO existe en BD "+c );
-					em.persist(c);
-					log.info("Despues de guardar el contacto "+c );
+				if (uC == null) {
+					// contacto con id pero no existe en BD se persiste sin mantener el id
+					log.info("##### Contacto con id NO existe en BD "+c );
+					em.merge(c);
+					log.info("##### Despues de guardar el contacto "+c );
 					builder = Response.ok(c);
+				} else {
+						log.info("##### Contacto YA existe en BD "+uC );
+						uC = em.merge(c);
+						log.info("##### Despues de guardar el contacto "+uC );
+						builder = Response.ok(uC);
 				}
 			}
 			return builder.build();
 
-		} catch (Exception e) {
-			throw new EJBException(e);
-		}
+//		} catch (Exception e) {
+//			throw new EJBException(e);
+//		}
 	}
 
 }
